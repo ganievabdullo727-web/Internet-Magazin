@@ -498,40 +498,81 @@ footer {
     padding: 20px;
     border-radius: 20px;
   }
-}
+}/* ==========================================
+   📱 МОБИЛЬНАЯ ВЕРСИЯ КОРЗИНЫ
+   ========================================== */
 @media (max-width: 768px) {
-  /* Скрываем заголовки таблицы (Товар, Цена и т.д.) */
-  .cart-table thead {
-    display: none;
+
+  /* Убираем лишние отступы у контейнеров */
+  .container {
+    padding: 0 10px !important;
+    width: 100% !important;
+    overflow-x: hidden;
   }
 
-  /* Превращаем таблицу и её элементы в блочные карточки */
+  /* Стеклянная карточка подстраивается под экран */
+  .glass-card {
+    padding: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+  }
+
+  /* Скрываем заголовки таблицы (Товар, Цена и т.д.) */
+  .cart-table thead {
+    display: none !important;
+  }
+
+  /* Превращаем таблицу и строки в гибкие карточки */
   .cart-table, 
   .cart-table tbody, 
   .cart-table tr, 
   .cart-table td {
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .cart-table tr {
     margin-bottom: 15px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     padding: 12px;
   }
 
   .cart-table td {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: right;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    text-align: right !important;
+    font-size: 0.9rem;
   }
 
   .cart-table td:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
+  }
+
+  /* Картинка товара внутри корзины */
+  .cart-table img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* Поле с итоговой суммой и кнопка оформления */
+  .cart-summary, 
+  .cart-checkout {
+    width: 100% !important;
+    margin-top: 15px;
+    text-align: center !important;
+  }
+
+  .btn-glass {
+    width: 100% !important;
+    display: block !important;
   }
 }
