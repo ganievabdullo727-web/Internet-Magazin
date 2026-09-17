@@ -295,31 +295,47 @@ const categoryMap = {
   lifestyle: 'Аксессуары'
 };
 
-function renderCatalog(category = 'all') {
-  const container = document.getElementById('catalog-products-grid');
-  if (!container) return;
+// 🔥 ИСПРАВЛЕННЫЙ РЕНДЕР КОРЗИНЫ (АККУРАТНЫЙ СТОЛБИК / СТРОЧКА) 🔥
+function renderCart() {
+  const tbody = document.getElementById('cart-items-body');
+  const totalPriceEl = document.getElementById('cart-total-price');
 
-  const filtered = category === 'all' 
-    ? productsData 
-    : productsData.filter(p => p.category === category);
+  if (!tbody) return;
 
-  container.innerHTML = '';
-  filtered.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'glass-card product-card reveal';
-    card.innerHTML = `
-      <div>
-        <img src="${p.img}" onerror="this.src='${placeholderImg}'" class="product-img" alt="${p.name}">
-        <div class="product-category">${categoryMap[p.category] || p.category}</div>
-        <h3 class="product-title">${p.name}</h3>
-        <p class="product-price">$ ${p.price}</p>
-      </div>
-      <button class="btn-glass" onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')" style="width: 100%;">В корзину</button>
-    `;
-    container.appendChild(card);
-  });
+  tbody.innerHTML = '';
+  let total = 0;
 
-  initScrollReveal();
+  if (cart.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color: #64748b; padding: 40px 0;">Ваша корзина пока пуста</td></tr>';
+  } else {
+    cart.forEach((item, index) => {
+      total += item.price;
+      const tr = document.createElement('tr');
+      
+      // Делаем красивую строку таблицы: картинка и название слева, цена в центре, удаление справа
+      tr.innerHTML = `
+        <td style="padding: 12px 8px; vertical-align: middle;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="${item.img || item.image || placeholderImg}" onerror="this.src='${placeholderImg}'" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; flex-shrink: 0;">
+            <span style="font-weight: 500; color: #f8fafc; font-size: 0.95rem; line-height: 1.3;">${item.name}</span>
+          </div>
+        </td>
+        <td style="padding: 12px 8px; vertical-align: middle; color: #38bdf8; font-weight: 600; white-space: nowrap;">
+          $ ${item.price}
+        </td>
+        <td style="padding: 12px 8px; vertical-align: middle; text-align: right;">
+          <button onclick="removeFromCart(${index})" style="background: rgba(248, 113, 113, 0.1); border: 1px solid rgba(248, 113, 113, 0.2); color: #f87171; cursor: pointer; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem; transition: all 0.2s;">
+            Удалить
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  if (totalPriceEl) {
+    totalPriceEl.innerText = `$ ${total}`;
+  }
 }
 
 function filterProducts(category) {
