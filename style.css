@@ -709,3 +709,25 @@ footer {
     box-sizing: border-box !important;
   }
 }
+@media (max-width: 768px) {
+  /* Перестраиваем общую сетку корзины строго в столбик */
+  .cart-grid,
+  .cart-layout,
+  .cart-container {
+    display: flex !important;
+    flex-direction: column !important; /* Блок под блоком */
+    grid-template-columns: 1fr !important; /* Если использовался CSS Grid */
+    width: 100% !important;
+    gap: 20px !important;
+  }
+
+  /* Карточка корзины и форма оформления на всю ширину */
+  .glass-card,
+  .cart-card,
+  .checkout-section,
+  .checkout-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
