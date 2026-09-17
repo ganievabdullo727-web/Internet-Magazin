@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMIÈRE | Экосистема Роскоши</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <div class="container">
+    <header>
+      <nav class="nav-glass">
+        <a href="index.html" class="logo">LUMIÈRE</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="catalog.html">Каталог </a></li>
+          <li><a href="#services">Услуги </a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#journal">Журнал</a></li>
+          <li><a href="cart.html" class="cart-icon-btn">Корзина <span class="cart-badge" id="cart-count">0</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Герой-баннер -->
+      <section class="hero glass-card reveal">
+        <h1>ИСКУССТВО СТЕКЛА И ЭЛЕГАНТНОСТИ</h1>
+        <p>LUMIÈRE — это не просто бренд. Это персональная экосистема стиля, сочетающая более 50 редких концептуальных изделий, персональный консьерж-сервис и абсолютный минимализм.</p>
+        <div class="hero-buttons">
+          <a href="catalog.html" class="btn-glass">Перейти в каталог (54)</a>
+          <a href="#services" class="btn-glass btn-secondary">VIP Услуги (12)</a>
+        </div>
+      </section>
+
+      <!-- Статистика премиума -->
+      <section class="stats-bar glass-card reveal">
+        <div>
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Эксклюзивность</div>
+        </div>
+        <div>
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Персональный консьерж</div>
+        </div>
+        <div>
+          <div class="stat-number">48 Ч</div>
+          <div class="stat-label">Доставка по всему миру</div>
+        </div>
+        <div>
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Предметов в коллекции</div>
+        </div>
+      </section>
+
+      <!-- Главная подборка шедевров (12 товаров) -->
+      <section style="margin-bottom: 80px;">
+        <h2 class="section-title reveal">ИЗБРАННЫЕ ШЕДЕВРЫ КОЛЛЕКЦИИ</h2>
+        <div class="products-grid">
+          
+          <div class="glass-card product-card reveal">
+            <div>
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" class="product-img" alt="Часы">
+              <div class="product-category">Часы</div>
+              <h3 class="product-title">Lumière Chrono Silver</h3>
+              <p class="product-price">$ 450</p>
+            </div>
+            <button class="btn-glass" onclick="addToCart('Lumière Chrono Silver', 450)">В корзину</button>
+          </div>
+
+          <div class="glass-card product-card reveal">
+            <div>
+              <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" class="product-img" alt="Парфюм">
+              <div class="product-category">Парфюмерия</div>
+              <h3 class="product-title">Noir Essence Extract</h3>
+              <p class="product-price">$ 280</p>
+            </div>
+            <button class="btn-glass" onclick="addToCart('Noir Essence Extract', 280)">В корзину</button>
+          </div>
+
+          <div class="glass-card product-card reveal">
+            <div>
+              <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500" class="product-img" alt="Очки">
+              <div class="product-category">Оптика</div>
+              <h3 class="product-title">Crystal Vision Frames</h3>
+              <p class="product-price">$ 320</p>
+            </div>
+            <button class="btn-glass" onclick="addToCart('Crystal Vision Frames', 320)">В корзину</button>
+          </div>
+
+          <div class="glass-card product-card reveal">
+            <div>
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" class="product-img" alt="Аудио">
+              <div class="product-category">Аудио</div>
+              <h3 class="product-title">Glass Audio Headset</h3>
+              <p class="product-price">$ 590</p>
+            </div>
+            <button class="btn-glass" onclick="addToCart('Glass Audio Headset', 590)">В корзину</button>
+          </div>
+
+          <div class="glass-card product-card reveal">
+            <div>
+              <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500" class="product-img" alt="Ювелирные">
+              <div class="product-category">Ювелирные изделия</div>
+              <h3 class="product-title">Diamond Edge Ring</h3>
+              <p class="product-price">$ 890</p>
+            </div>
+            <button class="btn-glass" onclick="addToCart('Diamond Edge Ring', 890)">В корзину</button>
+          </div>
+
+          <div class="glass-card product-card reveal">
+            <div>
+              <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=500" class="product-img" alt="Аксессуары">
+              <div class="product-category">Аксессуары</div>
+              <h3 class="product-title">Onyx Leather Wallet</h3>
+              <p class="product-price">$ 190</p>
+            </div>
+            <button class="btn-glass" onclick="addToCart('Onyx Leather Wallet', 190)">В корзину</button>
+          </div>
+
+        </div>
+        <div style="text-align: center; margin-top: 30px;" class="reveal">
+          <a href="catalog.html" class="btn-glass btn-secondary">Смотреть все 54 предмета в каталоге →</a>
+        </div>
+      </section>
+
+      <!-- Премиум-услуги (12 услуг) -->
+      <section id="services">
+        <h2 class="section-title reveal">ПЕРСОНАЛЬНЫЕ VIP УСЛУГИ (12)</h2>
+        <div class="services-grid">
+          
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">💎</div>
+            <h3 class="service-title">Персональный Стилист</h3>
+            <p class="service-desc">Индивидуальный подбор редких аксессуаров с выездом стилиста или онлайн-консультацией.</p>
+            <button class="btn-glass" onclick="bookService('Запись к Стилисту')">Записаться</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">✨</div>
+            <h3 class="service-title">Лазерная Гравировка</h3>
+            <p class="service-desc">Персонализация: нанесение монограмм, дат и гербов на драгоценные металлы и стекло.</p>
+            <button class="btn-glass" onclick="bookService('Заказ Гравировки')">Заказать</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🎁</div>
+            <h3 class="service-title">Private Concierge 24/7</h3>
+            <p class="service-desc">Поиск редчайших винтажных предметов роскоши на закрытых мировых аукционах.</p>
+            <button class="btn-glass" onclick="bookService('Запрос в Консьерж')">Связаться</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🛡️</div>
+            <h3 class="service-title">Страхование и Уход</h3>
+            <p class="service-desc">Сервисное обслуживание, ультразвуковая чистка и страхование изделий от любых рисков.</p>
+            <button class="btn-glass" onclick="bookService('Оформление Страховки')">Подключить</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">✈️</div>
+            <h3 class="service-title">Авиа-Доставка Курьером</h3>
+            <p class="service-desc">Личное вручение заказа курьером в любой точке планеты в течение 24 часов.</p>
+            <button class="btn-glass" onclick="bookService('VIP Доставка')">Заказать</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🍾</div>
+            <h3 class="service-title">Закрытые Презентации</h3>
+            <p class="service-desc">Персональное приглашение на кутюрные недели моды и аукционы в Милане и Париже.</p>
+            <button class="btn-glass" onclick="bookService('Доступ в Клуб')">Вступить</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🎨</div>
+            <h3 class="service-title">Bespoke Кастомизация</h3>
+            <p class="service-desc">Создание уникального аксессуара с нуля по вашим персональным эскизам и пожеланиям.</p>
+            <button class="btn-glass" onclick="bookService('Bespoke Дизайн')">Заказать эскиз</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🍷</div>
+            <h3 class="service-title">Приватный Шоурум</h3>
+            <p class="service-desc">Бронирование всего пространства нашего бутикового шоурума для вас и ваших гостей.</p>
+            <button class="btn-glass" onclick="bookService('Аренда Шоурума')">Забронировать</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">📦</div>
+            <h3 class="service-title">Премиум-Упаковка</h3>
+            <p class="service-desc">Подарочные шкатулки из шёлка и сусального золота с персональным ароматом бренда.</p>
+            <button class="btn-glass" onclick="bookService('Заказ Упаковки')">Выбрать</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🔑</div>
+            <h3 class="service-title">Членство Lumière Vault</h3>
+            <p class="service-desc">Закрытый доступ к раннему бронированию лимитированных коллекций (до 100 экз.).</p>
+            <button class="btn-glass" onclick="bookService('Доступ в Vault')">Запросить код</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">💼</div>
+            <h3 class="service-title">Корпоративный VIP-Подарок</h3>
+            <p class="service-desc">Формирование эксклюзивных бизнес-подарков с брендингом для топ-менеджмента.</p>
+            <button class="btn-glass" onclick="bookService('Корпоративный Заказ')">Рассчитать</button>
+          </div>
+
+          <div class="glass-card service-card reveal">
+            <div class="service-icon">🏛️</div>
+            <h3 class="service-title">Оценка и Экспертиза</h3>
+            <p class="service-desc">Официальная независимая экспертиза и выдача паспорта аутентичности на драгоценности.</p>
+            <button class="btn-glass" onclick="bookService('Заказ Экспертизы')">Провести</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Отзывы VIP клиентов -->
+      <section id="reviews" style="margin-bottom: 80px;">
+        <h2 class="section-title reveal">ОТЗЫВЫ ЧЛЕНОВ КЛУБА</h2>
+        <div class="services-grid">
+          
+          <div class="glass-card reveal">
+            <p style="font-style: italic; color: #cbd5e1; margin-bottom: 15px;">«Качество Lumière Chrono выше всех похвал. Консьерж-служба доставила заказ прямо в аэропорт Женевы за несколько часов!»</p>
+            <h4 style="color: #38bdf8; font-weight: 500;">— Александр В., Цюрих</h4>
+          </div>
+
+          <div class="glass-card reveal">
+            <p style="font-style: italic; color: #cbd5e1; margin-bottom: 15px;">«Заказывала индивидуальную лазерную гравировку на парфюмерном флаконе. Детализация просто поражает. Настоящий премиум.»</p>
+            <h4 style="color: #38bdf8; font-weight: 500;">— Елена К., Монако</h4>
+          </div>
+
+          <div class="glass-card reveal">
+            <p style="font-style: italic; color: #cbd5e1; margin-bottom: 15px;">«Уровень приватного консьерж-сервиса Lumière превзошел ожидания. Нашли винтажную вещь, которую я искал 5 лет.»</p>
+            <h4 style="color: #38bdf8; font-weight: 500;">— Марк С., Дубай</h4>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Закрытый клуб подписки -->
+      <section class="glass-card reveal" style="text-align: center; padding: 60px 20px;">
+        <h2 style="font-size: 2rem; font-weight: 300; letter-spacing: 4px; margin-bottom: 15px; color: #fff;">ВСТУПИТЬ В LUMIÈRE PRIVÉ</h2>
+        <p style="color: #94a3b8; max-width: 550px; margin: 0 auto 30px;">Получайте закрытые приглашения на предзаказы редких коллекций и приватные презентации.</p>
+        <form style="display: flex; gap: 15px; justify-content: center; max-width: 500px; margin: 0 auto;" onsubmit="event.preventDefault(); showToast('Вы успешно вступили в Lumière Privé!', '👑');">
+          <input type="email" class="form-input" placeholder="Ваш Email адрес" required style="margin: 0;">
+          <button type="submit" class="btn-glass" style="white-space: nowrap;">Подписаться</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 LUMIÈRE HIGH JEWELRY & CONCIERGE. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

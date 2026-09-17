@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMIÈRE | Каталог (54 Премиум-Товара)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+
+  <div class="container">
+    <header>
+      <nav class="nav-glass">
+        <a href="index.html" class="logo">LUMIÈRE</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html" class="active">Каталог</a></li>
+          <li><a href="cart.html" class="cart-icon-btn">Корзина <span class="cart-badge" id="cart-count">0</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="section-title reveal">ПОЛНАЯ КОЛЛЕКЦИЯ </h1>
+
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" onclick="filterProducts('all')">Все предметы</button>
+        <button class="filter-btn" onclick="filterProducts('watches')">Часы</button>
+        <button class="filter-btn" onclick="filterProducts('perfume')">Парфюмерия</button>
+        <button class="filter-btn" onclick="filterProducts('eyewear')">Оптика</button>
+        <button class="filter-btn" onclick="filterProducts('audio')">Аудио</button>
+        <button class="filter-btn" onclick="filterProducts('jewelry')">Ювелирные изделия</button>
+        <button class="filter-btn" onclick="filterProducts('lifestyle')">Аксессуары</button>
+      </div>
+
+      <!-- Автоматическая сетка из 54 эксклюзивных товаров -->
+      <div class="products-grid" id="catalog-products-grid"></div>
+    </main>
+
+    <footer>
+      <p>© 2026 LUMIÈRE HIGH JEWELRY & CONCIERGE. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
