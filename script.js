@@ -233,7 +233,7 @@ function removeFromCart(index) {
   showToast(`"${name}" удален из корзины`, '🗑️');
 }
 
-// 🔥 ОТОБРАЖЕНИЕ КОРЗИНЫ С ИЗОБРАЖЕНИЯМИ ТО ВАРА 🔥
+// 🔥 ОТОБРАЖЕНИЕ КОРЗИНЫ (ИСПРАВЛЕНО ДЛЯ ОТОБРАЖЕНИЯ КАРТИНОК) 🔥
 function renderCart() {
   const tbody = document.getElementById('cart-items-body');
   const totalPriceEl = document.getElementById('cart-total-price');
@@ -251,7 +251,7 @@ function renderCart() {
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="display: flex; align-items: center; gap: 15px; font-weight: 500;">
-          <img src="${item.img || placeholderImg}" alt="${item.name}" style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px;">
+          <img src="${item.img || item.image || placeholderImg}" onerror="this.src='${placeholderImg}'" alt="${item.name}" style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px;">
           <span>${item.name}</span>
         </td>
         <td style="color: #38bdf8;">$ ${item.price}</td>
