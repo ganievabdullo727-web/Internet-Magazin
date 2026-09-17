@@ -652,3 +652,34 @@ footer {
     width: 100% !important;
   }
 }
+.cart-summary-block {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.checkout-btn {
+  width: 100% !important; /* Кнопка растянется на всю ширину блока */
+  padding: 14px 0;
+  text-align: center;
+  display: block;
+}
