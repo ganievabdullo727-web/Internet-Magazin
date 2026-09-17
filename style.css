@@ -683,43 +683,29 @@ footer {
   text-align: center;
   display: block;
 }
-/* Жесткий фикс для мобильного экрана */
+/* Выравнивание пустой корзины строго по центру */
+.empty-cart {
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: center;
+  padding: 30px 10px;
+  box-sizing: border-box !important;
+}
+
+.empty-cart p {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  white-space: normal !important; /* Разрешаем переносы текста */
+}
+
+/* Фикс для мобильных устройств */
 @media (max-width: 768px) {
-  /* Запрещаем странице раздуваться по ширине */
-  html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-  /* Все контейнеры подстраиваем под ширину экрана */
-  .container, 
-  .glass-card, 
-  .cart-card, 
-  .cart-summary-block {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  /* Сбрасываем фиксированную ширину у таблиц */
-  .cart-table, 
-  .cart-table-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    table-layout: fixed !important;
-  }
-
-  /* Уменьшаем картинку товара, чтобы она не давила на контент */
-  .cart-table img, 
-  .cart-img-wrap img {
-    width: 50px !important;
-    height: 50px !important;
-  }
-
-  /* Внутренние отступы снижаем, чтобы всё помещалось */
   .glass-card {
-    padding: 15px 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 15px !important;
+    overflow: hidden !important; /* Обрезаем любые вылезания */
+    box-sizing: border-box !important;
   }
 }

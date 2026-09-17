@@ -27,23 +27,13 @@
 
       <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
         <!-- Таблица товаров -->
-        <div class="glass-card">
-          <table class="cart-table">
-            <thead>
-              <tr>
-                <th>Товар</th>
-                <th>Цена</th>
-                <th>Действие</th>
-              </tr>
-            </thead>
-            <tbody id="cart-items-body">
-              <!-- Товары подгружаются из script.js -->
-            </tbody>
-          </table>
-          <div style="text-align: right; font-size: 1.3rem; font-weight: bold; margin-top: 20px;">
-            Итого: <span id="cart-total-price" style="color: #38bdf8;">$ 0</span>
-          </div>
-        </div>
+    <div class="glass-card">
+  <!-- Блок пустой корзины -->
+  <div class="empty-cart">
+    <p>Ваша корзина пока пуста</p>
+    <a href="catalog.html" class="btn-glass">Перейти в каталог</a>
+  </div>
+</div>
 
         <!-- Оформление заказа -->
         <div class="glass-card">
