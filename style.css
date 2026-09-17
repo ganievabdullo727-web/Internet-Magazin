@@ -699,6 +699,14 @@ footer {
   white-space: normal !important; /* Разрешаем переносы текста */
 }
 
+/* Основной контейнер корзины и формы */
+.cart-container, .checkout-layout {
+  display: flex;
+  flex-direction: column; /* Выстраиваем элементы в столбик по умолчанию */
+  gap: 20px;
+}
+
+
 /* Фикс для мобильных устройств */
 @media (max-width: 768px) {
   .glass-card {
@@ -729,5 +737,13 @@ footer {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+  }
+}
+
+
+/* Если на десктопе вы хотите оставить их в ряд, используйте медиазапрос: */
+@media (min-width: 768px) {
+  .cart-container, .checkout-layout {
+    flex-direction: row; /* На больших экранах — в строку */
   }
 }
