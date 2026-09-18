@@ -522,34 +522,64 @@ footer {
   letter-spacing: 2px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-/* ==========================================
-   📱 ПОЛНЫЙ ПЕРЕВОД ВСЕХ БЛОКОВ В 1 СТОЛБИК
-   ========================================== */
-@media screen and (max-width: 768px) {
 
-  /* 1. Все главные обёртки и контейнеры — строго в столбик */
+/* ==========================================
+   📱 ПОЛНЫЙ ПЕРЕВОД ВСЕХ БЛОКОВ В 1 СТОЛБИК (ДО 510PX)
+   ========================================== */
+@media screen and (max-width: 510px) {
+
+  .container {
+    padding: 0 12px !important;
+  }
+
+  /* Шапка и Навигация */
+  header {
+    top: 8px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .nav-glass {
+    flex-direction: column !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+
+  .nav-links {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  /* Заголовки */
+  .hero h1 {
+    font-size: 2rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* Все главные обёртки — строго в столбик */
   main,
-  .container,
   .cart-container,
   .checkout-layout,
   .cart-layout,
   .cart-grid,
   .cart-main-wrapper,
   .checkout-container,
-  .checkout-grid {
+  .checkout-grid,
+  .services-grid,
+  .products-grid {
     display: flex !important;
     flex-direction: column !important;
     grid-template-columns: 1fr !important;
     grid-template-areas: none !important;
     width: 100% !important;
     max-width: 100% !important;
-    gap: 20px !important;
+    gap: 16px !important;
     box-sizing: border-box !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
-  /* 2. Каждая крупная секция (Товары, Сумма заказа, Данные доставки) — на 100% ширины */
+  /* Крупные секции */
   .cart-items-section,
   .order-summary-section,
   .checkout-section,
@@ -561,13 +591,15 @@ footer {
     width: 100% !important;
     max-width: 100% !important;
     float: none !important;
-    margin: 0 0 20px 0 !important;
+    margin: 0 0 16px 0 !important;
     box-sizing: border-box !important;
+    padding: 16px !important;
   }
 
-  /* 3. Карточка каждого товара — элементы внутри тоже тег за тегом */
+  /* Карточки товаров и элементов корзины */
   .cart-card,
-  .cart-item {
+  .cart-item,
+  .product-card {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -581,12 +613,13 @@ footer {
   .cart-img-wrap,
   .product-img {
     width: 100% !important;
-    max-width: 140px !important;
+    max-width: 100% !important;
     height: auto !important;
+    max-height: 200px !important;
     margin: 0 auto 12px auto !important;
   }
 
-  /* 4. Блок подсчёта суммы и промокода — элементы в столбик */
+  /* Блоки расчётов и промокодов */
   .summary-line,
   .promo-block,
   .cart-summary-row {
@@ -597,7 +630,7 @@ footer {
     gap: 10px !important;
   }
 
-  /* 5. Поля ввода формы доставки — тег за тегом */
+  /* Формы и поля ввода */
   .form-group,
   .form-row,
   .checkout-form {
@@ -615,13 +648,34 @@ footer {
     box-sizing: border-box !important;
   }
 
-  /* 6. Все кнопки — во всю ширину */
+  /* Кнопки */
   .btn-glass,
   .checkout-btn,
+  .cart-icon-btn,
+  .filter-btn,
   button {
     width: 100% !important;
     display: block !important;
     text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Фильтры */
+  .filter-bar,
+  .filters-container {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  /* Всплывающее уведомление */
+  .toast-container {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  .toast {
+    width: 100% !important;
     box-sizing: border-box !important;
   }
 }
