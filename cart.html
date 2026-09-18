@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMIÈRE | Корзина</title>
+  <title>LUMIÈRE | Корзина и Оформление</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,81 +11,142 @@
   <div class="bg-blob blob-2"></div>
 
   <div class="container">
+    <!-- Шапка сайта -->
     <header>
-      <nav class="nav-glass">
-        <a href="index.html" class="logo">LUMIÈRE</a>
-        <ul class="nav-links">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="cart.html" class="active cart-icon-btn">Корзина <span class="cart-badge" id="cart-count">0</span></a></li>
+      <nav class="nav-glass" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+        <a href="index.html" class="logo" style="font-size: 1.5rem; letter-spacing: 4px; text-decoration: none; color: #fff; font-weight: 300;">LUMIÈRE</a>
+        
+        <ul class="nav-links" style="display: flex; gap: 30px; list-style: none; align-items: center;">
+          <li><a href="index.html" style="color: #cbd5e1; text-decoration: none;">Главная</a></li>
+          <li><a href="catalog.html" style="color: #cbd5e1; text-decoration: none;">Каталог</a></li>
+          <li>
+            <!-- Селектор Валют -->
+            <select id="currency-selector" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 4px 8px; border-radius: 6px; cursor: pointer;">
+              <option value="USD" style="background: #0f172a;">USD ($)</option>
+              <option value="EUR" style="background: #0f172a;">EUR (€)</option>
+              <option value="RUB" style="background: #0f172a;">RUB (₽)</option>
+            </select>
+          </li>
+          <li>
+            <a href="cart.html" class="active cart-icon-btn" style="color: #fff; text-decoration: none; font-weight: 600;">
+              Корзина <span class="cart-badge" id="cart-count" style="background: #38bdf8; color: #000; padding: 2px 7px; border-radius: 10px; font-size: 0.8rem;">0</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
 
-    <main>
-      <h1 style="letter-spacing: 4px; font-weight: 300; margin-bottom: 30px;">ВАША КОРЗИНА</h1>
-
-      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
-        <!-- Таблица товаров -->
-    <div class="glass-card">
-  <!-- Блок пустой корзины -->
-  <div class="empty-cart">
-    <p>Ваша корзина пока пуста</p>
-    <a href="catalog.html" class="btn-glass">Перейти в каталог</a>
-  </div>
-</div>
-
-        <!-- Оформление заказа -->
-        <div class="glass-card">
-          <h3 style="margin-bottom: 20px; font-weight: 400; letter-spacing: 2px;">ОФОРМЛЕНИЕ</h3>
-          <form onsubmit="submitOrder(event)">
-            <div class="form-group">
-              <input type="text" class="form-input" placeholder="Ваше Имя" required>
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-input" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" class="form-input" placeholder="Телефон" required>
-            </div>
-            <button type="submit" class="btn-glass" style="width: 100%;">Заказать</button>
-          </form>
+    <main style="margin-top: 40px; margin-bottom: 80px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px;">
+        <div>
+          <h1 style="letter-spacing: 4px; font-weight: 300; font-size: 2.2rem; margin-bottom: 5px;">ВАША КОРЗИНА</h1>
+          <p style="color: #94a3b8; font-size: 0.95rem;">Проверьте выбранные позиции перед подтверждением VIP-заказа</p>
         </div>
+      </div>
+
+      <!-- Главная сетка корзины -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+        
+        <!-- Левая колонка: Список товаров -->
+        <div>
+          <div class="glass-card" id="cart-items-container" style="padding: 25px;">
+            <!-- Товары загружаются динамически из script.js -->
+          </div>
+
+          <!-- Преимущества сервиса -->
+          <div class="glass-card" style="margin-top: 25px; padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;">
+            <div>
+              <div style="font-size: 1.5rem; margin-bottom: 5px;">✈️</div>
+              <div style="font-size: 0.85rem; color: #fff; font-weight: 500;">Экспресс-Доставка</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Лично в руки за 24-48 часов</div>
+            </div>
+            <div>
+              <div style="font-size: 1.5rem; margin-bottom: 5px;">🛡️</div>
+              <div style="font-size: 0.85rem; color: #fff; font-weight: 500;">Страховка 100%</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Полная защита при транспортировке</div>
+            </div>
+            <div>
+              <div style="font-size: 1.5rem; margin-bottom: 5px;">👑</div>
+              <div style="font-size: 0.85rem; color: #fff; font-weight: 500;">Консьерж Сервис</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Персональная подгонка и подарочная упаковка</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: Итоговый расчет и Оформление -->
+        <div>
+          <!-- Блок Итого -->
+          <div class="glass-card" style="padding: 25px; margin-bottom: 25px;">
+            <h3 style="margin-bottom: 20px; font-weight: 400; letter-spacing: 2px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">СУММА ЗАКАЗА</h3>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; color: #cbd5e1;">
+              <span>Стоимость товаров:</span>
+              <strong id="cart-subtotal">$ 0</strong>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; color: #cbd5e1;">
+              <span>Скидка по промокоду:</span>
+              <strong id="cart-discount" style="color: #38bdf8;">- $ 0</strong>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; color: #cbd5e1;">
+              <span>VIP Доставка:</span>
+              <strong id="cart-delivery">$ 0</strong>
+            </div>
+
+            <!-- Поле Промокода -->
+            <form onsubmit="applyPromoCode(event)" style="display: flex; gap: 8px; margin-bottom: 20px; margin-top: 15px;">
+              <input type="text" id="promo-input" placeholder="Промокод (LUMIERE10)" style="flex-grow: 1; padding: 8px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: #fff; font-size: 0.85rem;">
+              <button type="submit" class="btn-glass" style="padding: 8px 14px; font-size: 0.85rem; white-space: nowrap;">ОК</button>
+            </form>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 1.1rem;">Итого к оплате:</span>
+              <strong id="cart-total-price" style="font-size: 1.6rem; color: #fff;">$ 0</strong>
+            </div>
+          </div>
+
+          <!-- Форма оформления -->
+          <div class="glass-card" style="padding: 25px;">
+            <h3 style="margin-bottom: 20px; font-weight: 400; letter-spacing: 2px; font-size: 1.2rem;">ДАННЫЕ ДОСТАВКИ</h3>
+            
+            <form onsubmit="submitOrder(event)">
+              <div style="margin-bottom: 15px;">
+                <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 5px;">ФИО ПОЛУЧАТЕЛЯ</label>
+                <input type="text" id="order-name" class="form-input" placeholder="Александр Владимиров" required style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff;">
+              </div>
+
+              <div style="margin-bottom: 15px;">
+                <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 5px;">EMAIL ДЛЯ ЧЕКА И ТРЕКИНГА</label>
+                <input type="email" id="order-email" class="form-input" placeholder="vip@lumiere.com" required style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff;">
+              </div>
+
+              <div style="margin-bottom: 15px;">
+                <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 5px;">ТЕЛЕФОН СВЯЗИ</label>
+                <input type="tel" id="order-phone" class="form-input" placeholder="+7 (999) 000-00-00" required style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff;">
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label style="display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 5px;">СПОСОБ ОПЛАТЫ</label>
+                <select style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; cursor: pointer;">
+                  <option value="card" style="background: #0f172a;">Банковская карта (Visa/Mastercard/Mir)</option>
+                  <option value="crypto" style="background: #0f172a;">Криптовалюта (USDT / BTC)</option>
+                  <option value="concierge" style="background: #0f172a;">Оплата наличными курьеру</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-glass" style="width: 100%; padding: 14px; font-weight: 600; letter-spacing: 1px;">ПОДТВЕРДИТЬ ЗАКАЗ</button>
+            </form>
+          </div>
+        </div>
+
       </div>
     </main>
 
     <footer>
-      <p>© 2026 LUMIÈRE. Все права защищены. Зеркальный минимализм.</p>
+      <p style="text-align: center; color: #64748b; font-size: 0.85rem;">© 2026 LUMIÈRE HIGH JEWELRY & CONCIERGE. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
     </footer>
   </div>
-
-  <div class="cart-card">
-  <!-- Картинка -->
-  <div class="cart-img-wrap">
-    <img src="img/product.jpg" alt="Lumière Monolith Steel">
-  </div>
-
-  <!-- Информация о товаре -->
-  <div class="cart-info">
-    <h3 class="cart-title">Lumière Monolith Steel</h3>
-    <div class="cart-price">$ 420</div>
-  </div>
-
-  <!-- Действия -->
-  <div class="cart-actions">
-    <button class="cart-remove-btn">Удалить</button>
-  </div>
-</div>
-
-<!-- Итоговый блок -->
-<div class="cart-summary-card">
-  <div class="summary-line">
-    <span>Итого:</span>
-    <strong>$ 420</strong>
-  </div>
-  <button class="btn-glass checkout-btn">Оформить заказ</button>
-</div>
-
 
   <script src="script.js"></script>
 </body>

@@ -114,14 +114,16 @@ header {
   margin-left: 8px;
 }
 
-/* Эффект прокрутки */
+/* Эффект плавного появления при прокрутке */
 .reveal {
   opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
+/* Класс, который JS добавляет при прокрутке */
 .reveal.active {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -364,7 +366,16 @@ header {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Корзина */
+/* Корзина (Десктоп) */
+.cart-container, 
+.checkout-layout,
+.cart-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: flex-start;
+}
+
 .cart-table-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -390,196 +401,9 @@ header {
   letter-spacing: 2px;
 }
 
-.form-group {
-  margin-bottom: 18px;
-}
-
-.form-input {
-  width: 100%;
-  padding: 12px 18px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  color: #fff;
-  outline: none;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-.form-input:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-}
-
-footer {
-  margin-top: 80px;
-  padding: 30px 0;
-  text-align: center;
-  color: #64748b;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* ==========================================
-   📱 МОБИЛЬНАЯ ВЕРСИЯ (MEDIA QUERIES)
-   ========================================== */
-
-/* Планшеты и телефоны (до 768px) */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 12px;
-  }
-
-  header {
-    top: 10px;
-    margin-bottom: 30px;
-  }
-
-  .nav-glass {
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px 16px;
-    border-radius: 18px;
-  }
-
-  .nav-links {
-    gap: 12px;
-    font-size: 0.75rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .hero {
-    padding: 40px 10px;
-  }
-
-  .hero h1 {
-    font-size: 2.3rem;
-    letter-spacing: 3px;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-buttons .btn-glass {
-    width: 100%;
-  }
-
-  .filter-bar,
-  .filters-container {
-    gap: 6px;
-  }
-
-  .filter-btn {
-    padding: 8px 12px;
-    font-size: 0.75rem;
-    flex: 1 1 calc(50% - 6px);
-    text-align: center;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-  }
-
-  .product-img {
-    height: 170px;
-  }
-
-  .glass-card {
-    padding: 20px;
-    border-radius: 20px;
-  }
-}/* ==========================================
-   📱 МОБИЛЬНАЯ ВЕРСИЯ КОРЗИНЫ
-   ========================================== */
-@media (max-width: 768px) {
-
-  /* Убираем лишние отступы у контейнеров */
-  .container {
-    padding: 0 10px !important;
-    width: 100% !important;
-    overflow-x: hidden;
-  }
-
-  /* Стеклянная карточка подстраивается под экран */
-  .glass-card {
-    padding: 12px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    margin: 0 auto !important;
-  }
-
-  /* Скрываем заголовки таблицы (Товар, Цена и т.д.) */
-  .cart-table thead {
-    display: none !important;
-  }
-
-  /* Превращаем таблицу и строки в гибкие карточки */
-  .cart-table, 
-  .cart-table tbody, 
-  .cart-table tr, 
-  .cart-table td {
-    display: block !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .cart-table tr {
-    margin-bottom: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-    padding: 12px;
-  }
-
-  .cart-table td {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 10px 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    text-align: right !important;
-    font-size: 0.9rem;
-  }
-
-  .cart-table td:last-child {
-    border-bottom: none !important;
-  }
-
-  /* Картинка товара внутри корзины */
-  .cart-table img {
-    width: 50px !important;
-    height: 50px !important;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  /* Поле с итоговой суммой и кнопка оформления */
-  .cart-summary, 
-  .cart-checkout {
-    width: 100% !important;
-    margin-top: 15px;
-    text-align: center !important;
-  }
-
-  .btn-glass {
-    width: 100% !important;
-    display: block !important;
-  }
-}
-/* Мобильная карточка товара */
 .cart-card {
   display: flex;
-  flex-direction: column; /* Выстраиваем строго в столбик */
+  flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 12px;
@@ -622,43 +446,14 @@ footer {
   padding: 6px 12px;
 }
 
-/* Итоговый блок под карточками */
+.cart-summary-block,
 .cart-summary-card {
   width: 100%;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.summary-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.1rem;
-  color: #fff;
-  margin-bottom: 15px;
-}
-
-.checkout-btn {
-  width: 100%;
-}
-
-/* Адаптив под маленькие экраны */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 12px !important;
-    width: 100% !important;
-  }
-}
-.cart-summary-block {
-  width: 100%;
   margin-top: 20px;
-  padding: 16px;
+  padding: 20px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -678,72 +473,155 @@ footer {
 }
 
 .checkout-btn {
-  width: 100% !important; /* Кнопка растянется на всю ширину блока */
+  width: 100%;
   padding: 14px 0;
   text-align: center;
   display: block;
 }
-/* Выравнивание пустой корзины строго по центру */
+
 .empty-cart {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
   text-align: center;
   padding: 30px 10px;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 .empty-cart p {
   color: #94a3b8;
   font-size: 1rem;
   margin-bottom: 20px;
-  white-space: normal !important; /* Разрешаем переносы текста */
 }
 
-/* Основной контейнер корзины и формы */
-.cart-container, .checkout-layout {
-  display: flex;
-  flex-direction: column; /* Выстраиваем элементы в столбик по умолчанию */
-  gap: 20px;
+.form-group {
+  margin-bottom: 18px;
 }
 
-
-/* Фикс для мобильных устройств */
-@media (max-width: 768px) {
-  .glass-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 15px !important;
-    overflow: hidden !important; /* Обрезаем любые вылезания */
-    box-sizing: border-box !important;
-  }
+.form-input {
+  width: 100%;
+  padding: 12px 18px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  font-size: 0.9rem;
+  transition: 0.3s;
 }
-@media (max-width: 768px) {
-  /* Перестраиваем общую сетку корзины строго в столбик */
-  .cart-grid,
+
+.form-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+footer {
+  margin-top: 80px;
+  padding: 30px 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* ==========================================
+   📱 ПОЛНЫЙ ПЕРЕВОД ВСЕХ БЛОКОВ В 1 СТОЛБИК
+   ========================================== */
+@media screen and (max-width: 768px) {
+
+  /* 1. Все главные обёртки и контейнеры — строго в столбик */
+  main,
+  .container,
+  .cart-container,
+  .checkout-layout,
   .cart-layout,
-  .cart-container {
+  .cart-grid,
+  .cart-main-wrapper,
+  .checkout-container,
+  .checkout-grid {
     display: flex !important;
-    flex-direction: column !important; /* Блок под блоком */
-    grid-template-columns: 1fr !important; /* Если использовался CSS Grid */
-    width: 100% !important;
-    gap: 20px !important;
-  }
-
-  /* Карточка корзины и форма оформления на всю ширину */
-  .glass-card,
-  .cart-card,
-  .checkout-section,
-  .checkout-card {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    grid-template-areas: none !important;
     width: 100% !important;
     max-width: 100% !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* 2. Каждая крупная секция (Товары, Сумма заказа, Данные доставки) — на 100% ширины */
+  .cart-items-section,
+  .order-summary-section,
+  .checkout-section,
+  .cart-summary-block,
+  .cart-summary-card,
+  .glass-card,
+  .checkout-card {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin: 0 0 20px 0 !important;
     box-sizing: border-box !important;
   }
-}
 
+  /* 3. Карточка каждого товара — элементы внутри тоже тег за тегом */
+  .cart-card,
+  .cart-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
 
-/* Если на десктопе вы хотите оставить их в ряд, используйте медиазапрос: */
-@media (min-width: 768px) {
-  .cart-container, .checkout-layout {
-    flex-direction: row; /* На больших экранах — в строку */
+  .cart-img-wrap,
+  .product-img {
+    width: 100% !important;
+    max-width: 140px !important;
+    height: auto !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+  /* 4. Блок подсчёта суммы и промокода — элементы в столбик */
+  .summary-line,
+  .promo-block,
+  .cart-summary-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  /* 5. Поля ввода формы доставки — тег за тегом */
+  .form-group,
+  .form-row,
+  .checkout-form {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .form-input,
+  .form-control,
+  select,
+  input {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 6. Все кнопки — во всю ширину */
+  .btn-glass,
+  .checkout-btn,
+  button {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
 }
